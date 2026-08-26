@@ -1,10 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue - Datenstrukturen</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h1 { color: #2c3e50; }
+
+        .erklaerung {
+            background-color: #e2f0d9;
+            padding: 15px 20px;
+            border-left: 5px solid #70ad47;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .interaktion {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover { background-color: #1c5980; }
+
+        .ergebnis-box {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            min-height: 50px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
+
+<h1>Die Queue (Warteschlange)</h1>
+
+<!-- Kurze Erklärung der Datenstruktur -->
+<div class="erklaerung">
+    <p><strong>Prinzip:</strong> FIFO (First-In, First-Out).</p>
+    <p>Eine Queue funktioniert wie eine Warteschlange an der Supermarktkasse. Wer sich zuerst anstellt, wird auch als Erstes bedient. Neue Elemente werden hinten angefügt (Enqueue) und vorne entnommen (Dequeue).</p>
+</div>
+
+<!-- Bereich für die Interaktion mit dem User -->
+<div class="interaktion">
+    <h3>Interaktion</h3>
+
+    <label for="eingabe">Neues Element:</label>
+    <input type="text" id="eingabe" placeholder="z.B. Kunde 1">
+
+    <button type="button">Enqueue (Hinten anfügen)</button>
+    <button type="button">Dequeue (Vorne bedienen)</button>
+
+    <!-- Hier wird das Resultat vom Backend angezeigt -->
+    <div class="ergebnis-box">
+        <strong>Output / Aktuelle Queue:</strong>
+        <br><br>
+        <em>(Hier erscheint bald das Ergebnis aus dem Backend...)</em>
+    </div>
+</div>
+
+<a href="/" class="back-link">← Zurück zur Startseite</a>
 
 </body>
 </html>
