@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenstrukturen Anwendung</title>
+    <style>
+        /* Grundlegendes Design der Seite */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Styling der Hauptüberschrift */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* Das Raster (Grid) für die Kacheln */
+        .grid-container {
+            display: grid;
+            /* Auf großen Bildschirmen 3 Spalten, bricht auf Handys automatisch um */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px; /* Maximale Breite des Rasters */
+        }
+
+        /* Das Aussehen der einzelnen Kacheln */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            text-decoration: none; /* Entfernt die Unterstreichung des Links */
+            color: #2980b9;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease; /* Weicher Übergang für den Hover-Effekt */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+        }
+
+        /* Der Hover-Effekt (Wenn die Maus über die Kachel fährt) */
+        .card:hover {
+            transform: translateY(-5px); /* Kachel hebt sich leicht an */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Schatten wird größer */
+            background-color: #2980b9;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Datenstrukturen Anwendung</h1>
+
+<div class="grid-container">
+    <!-- Die Links zeigen aktuell auf Unterseiten, die wir später noch bauen müssen -->
+    <a href="/stack" class="card">Stack</a>
+    <a href="/queue" class="card">Queue</a>
+    <a href="/linked-list" class="card">Linked List</a>
+    <a href="/binary-tree" class="card">Binary Tree</a>
+    <a href="/hash-table" class="card">Hash Table</a>
+    <a href="/graph" class="card">Graph</a>
+</div>
+
+</body>
+</html>
