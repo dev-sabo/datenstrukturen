@@ -18,8 +18,8 @@ public class DatenstrukturController {
     @GetMapping("/binary-tree")
     public String zeigeBinaryTree() { return "binary-tree"; }
 
-    @GetMapping("/hash-table")
-    public String zeigeHashTable() { return "hash-table"; }
+    /*@GetMapping("/hash-table")
+    public String zeigeHashTable() { return "hash-table"; } */
 
     @GetMapping("/graph")
     public String zeigeGraph() { return "graph"; }

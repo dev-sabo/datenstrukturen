@@ -1,76 +1,20 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hash Table - Datenstrukturen</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; max-width: 800px; margin: 40px auto; padding: 0 20px; }
         h1 { color: #2c3e50; }
-
-        .erklaerung {
-            background-color: #e2f0d9;
-            padding: 15px 20px;
-            border-left: 5px solid #70ad47;
-            border-radius: 4px;
-            margin-bottom: 30px;
-        }
-
-        .interaktion {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .eingabe-gruppe {
-            margin-bottom: 15px;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 200px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        button {
-            padding: 10px 15px;
-            background-color: #2980b9;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
+        .erklaerung { background-color: #e2f0d9; padding: 15px 20px; border-left: 5px solid #70ad47; border-radius: 4px; margin-bottom: 30px; }
+        .interaktion { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); }
+        .eingabe-gruppe { margin-bottom: 15px; }
+        input[type="text"] { padding: 10px; width: 200px; border: 1px solid #ccc; border-radius: 4px; margin-right: 10px; margin-bottom: 10px; }
+        button { padding: 10px 15px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px; margin-bottom: 5px; }
         button:hover { background-color: #1c5980; }
-
-        .ergebnis-box {
-            margin-top: 25px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border: 1px dashed #ccc;
-            border-radius: 4px;
-            min-height: 50px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 30px;
-            color: #2980b9;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        .ergebnis-box { margin-top: 25px; padding: 15px; background-color: #f8f9fa; border: 1px dashed #ccc; border-radius: 4px; min-height: 50px; }
+        .back-link { display: inline-block; margin-top: 30px; color: #2980b9; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
     </style>
 </head>
@@ -78,34 +22,35 @@
 
 <h1>Die Hash Table (Hashtabelle)</h1>
 
-<!-- Kurze Erklärung der Datenstruktur -->
 <div class="erklaerung">
     <p><strong>Prinzip:</strong> Schlüssel-Wert-Paare (Key-Value) und Hashing.</p>
     <p>Eine Hashtabelle speichert Daten, indem sie einen Schlüssel (Key) mithilfe einer Hashfunktion in einen Index umwandelt. Dieser Index gibt an, wo der zugehörige Wert (Value) im Speicher liegt. Das ermöglicht extrem schnelles Speichern und Suchen.</p>
 </div>
 
-<!-- Bereich für die Interaktion mit dem User -->
 <div class="interaktion">
     <h3>Interaktion</h3>
 
-    <div class="eingabe-gruppe">
-        <label for="keyEingabe">Schlüssel (Key):</label>
-        <input type="text" id="keyEingabe" placeholder="z.B. Matrikelnummer">
+    <!-- Hier startet das Formular für Spring Boot -->
+    <form action="/hash-table/operation" method="post">
+        <div class="eingabe-gruppe">
+            <label for="keyEingabe">Schlüssel (Key):</label>
+            <input type="text" id="keyEingabe" name="key" placeholder="z.B. Matrikelnummer">
 
-        <label for="valueEingabe">Wert (Value):</label>
-        <input type="text" id="valueEingabe" placeholder="z.B. Max Mustermann">
-    </div>
+            <label for="valueEingabe">Wert (Value):</label>
+            <input type="text" id="valueEingabe" name="value" placeholder="z.B. Max Mustermann">
+        </div>
 
-    <!-- Passende Buttons für die Hash Table -->
-    <button type="button">Einfügen (Put)</button>
-    <button type="button">Suchen (Get - nur Key nötig)</button>
-    <button type="button">Löschen (Remove - nur Key nötig)</button>
+        <!-- Submit-Buttons mit dem Attribut "name='aktion'" -->
+        <button type="submit" name="aktion" value="put">Einfügen (Put)</button>
+        <button type="submit" name="aktion" value="get">Suchen (Get - nur Key nötig)</button>
+        <button type="submit" name="aktion" value="remove">Löschen (Remove - nur Key nötig)</button>
+    </form>
 
-    <!-- Resultat-Box -->
     <div class="ergebnis-box">
         <strong>Output / Aktuelle Hash Table:</strong>
         <br><br>
-        <em>(Hier erscheint bald das Ergebnis aus dem Backend...)</em>
+        <!-- Thymeleaf injiziert hier das Ergebnis -->
+        <span th:utext="${ergebnis}"><em>(Hier erscheint bald das Ergebnis aus dem Backend...)</em></span>
     </div>
 </div>
 
