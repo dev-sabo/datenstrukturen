@@ -15,8 +15,8 @@ public class DatenstrukturController {
    /* @GetMapping("/linked-list")
     public String zeigeLinkedList() { return "linked-list"; } */
 
-    @GetMapping("/binary-tree")
-    public String zeigeBinaryTree() { return "binary-tree"; }
+    /* @GetMapping("/binary-tree")
+    public String zeigeBinaryTree() { return "binary-tree"; } */
 
     /*@GetMapping("/hash-table")
     public String zeigeHashTable() { return "hash-table"; } */
