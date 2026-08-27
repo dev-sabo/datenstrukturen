@@ -78,23 +78,26 @@
     <p>Eine verkettete Liste besteht aus einzelnen Elementen (Knoten). Im Gegensatz zu einem Array liegen diese nicht direkt hintereinander im Speicher. Jeder Knoten enthält seinen Wert und einen Zeiger (Verweis) auf den nächsten Knoten in der Kette.</p>
 </div>
 
-<!-- Bereich für die Interaktion mit dem User -->
 <div class="interaktion">
     <h3>Interaktion</h3>
 
-    <label for="eingabe">Neues Element:</label>
-    <input type="text" id="eingabe" placeholder="z.B. Knoten A">
+    <!-- Ein Formular, das Daten per POST an den Controller schickt -->
+    <form action="#" th:action="@{/linked-list/operation}" method="post">
+        <label for="eingabe">Neues Element:</label>
+        <input type="text" id="eingabe" name="wert" placeholder="z.B. Knoten A">
 
-    <!-- Passende Buttons für die Linked List -->
-    <button type="button">Hinten anfügen (Append)</button>
-    <button type="button">Vorne anfügen (Prepend)</button>
-    <button type="button">Element löschen</button>
+        <!-- Verschiedene Aktionen über den 'action'-Parameter steuern -->
+        <button type="submit" name="aktion" value="append">Hinten anfügen</button>
+        <button type="submit" name="aktion" value="prepend">Vorne anfügen</button>
+        <button type="submit" name="aktion" value="delete">Element löschen</button>
+    </form>
 
-    <!-- Resultat-Box -->
+    <!-- Resultat-Box mit Thymeleaf-Ausgabe -->
     <div class="ergebnis-box">
         <strong>Output / Aktuelle Liste:</strong>
         <br><br>
-        <em>(Hier erscheint bald das Ergebnis aus dem Backend...)</em>
+        <!-- Gibt den aktuellen Zustand aus dem Controller/Modell aus -->
+        <span th:text="${ergebnis}"><em>(Hier erscheint bald das Ergebnis aus dem Backend...)</em></span>
     </div>
 </div>
 

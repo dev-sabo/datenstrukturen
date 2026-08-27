@@ -78,22 +78,30 @@
     <p>Ein Stack funktioniert wie ein Stapel Teller. Das Element, das als letztes hinzugefügt wurde (Push), ist das erste, das wieder heruntergenommen wird (Pop). Man hat immer nur Zugriff auf das oberste Element.</p>
 </div>
 
-<!-- Bereich für die Interaktion mit dem User -->
+
 <div class="interaktion">
     <h3>Interaktion</h3>
 
-    <label for="eingabe">Neues Element:</label>
-    <input type="text" id="eingabe" placeholder="z.B. Apfel oder 42">
+    <!-- PUSH-FORMULAR -->
+    <form action="/stack/push" method="post" style="display: inline-block;">
+        <label for="eingabe">Neues Element:</label>
+        <input type="text" id="eingabe" name="wert" placeholder="z.B. Apfel oder 42">
+        <button type="submit">Push (Hinzufügen)</button>
+    </form>
 
-    <!-- Später verknüpfen wir diese Buttons mit deinem Java-Code -->
-    <button type="button">Push (Hinzufügen)</button>
-    <button type="button">Pop (Entfernen)</button>
+    <!-- POP-FORMULAR -->
+    <form action="/stack/pop" method="post" style="margin-top: 15px;">
+        <button type="submit">Pop (Entfernen)</button>
+    </form>
 
     <!-- Hier wird das Resultat vom Backend angezeigt -->
     <div class="ergebnis-box">
         <strong>Output / Aktueller Stack:</strong>
         <br><br>
-        <em>(Hier erscheint bald das Ergebnis aus dem Backend...)</em>
+        <!-- Thymeleaf-Ausgabe, damit der echte Stack-Inhalt angezeigt wird -->
+        <ul>
+            <li th:each="item : ${stackInhalt}" th:text="${item}">Element</li>
+        </ul>
     </div>
 </div>
 
