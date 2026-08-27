@@ -21,6 +21,6 @@ public class DatenstrukturController {
     /*@GetMapping("/hash-table")
     public String zeigeHashTable() { return "hash-table"; } */
 
-    @GetMapping("/graph")
-    public String zeigeGraph() { return "graph"; }
+  /*  @GetMapping("/graph")
+    public String zeigeGraph() { return "graph"; } */
 }
